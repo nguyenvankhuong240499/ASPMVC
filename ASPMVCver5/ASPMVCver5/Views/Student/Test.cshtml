@@ -1,0 +1,38 @@
+﻿@model ASPMVCver5.Models.Student
+
+@{
+    ViewBag.Title = "Test";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Test</h2>
+
+<h2>Student Detail:</h2>
+<ul>
+
+    @Html.Display("Student")
+
+
+    @Html.Password("StudentPass", null, new { @class = "form-control" })
+
+
+    @Html.TextArea("Description", null, new { @class = "form-control"})
+    @Html.TextAreaFor(m => m.Description, new { @class ="form-control"})
+    @Html.CheckBox("isNewlyEnrolled",true)
+    @Html.RadioButton("Gender","Male")
+    @Html.RadioButton("Gender","Female")
+
+    @Html.DropDownList("StudentGender",
+ new SelectList(Enum.GetValues(typeof(ASPMVCver5.Models.Gender))),
+ "Select Gender",
+ new { @class = "form-control" })
+
+    @Html.Hidden("StudentId")
+    @Html.HiddenFor(m=>m.StudentId)
+    
+
+    @Html.CheckBoxFor(m => m.isNewlyEnrolled)
+    @Html.TextBox("StudentName", "this is value", new { @class = "form-control" })
+    @Html.TextBoxFor(a => a.StudentName, new { @class = "form-control" })
+</ul>
+
